@@ -208,7 +208,8 @@ public class Program
                 int xPosition = (800 - textWidth) / 2;
                 int yPosition = 30;
 
-                SplashKit.DrawRectangle(Color.Red, xPosition - 15, yPosition - 8, textWidth + 30, 25);
+                SplashKit.FillRectangle(Color.RGBAColor(255, 255, 255, 200), xPosition - 15, yPosition - 8, textWidth + 30, 25);
+                SplashKit.DrawRectangle(Color.Black, xPosition - 15, yPosition - 8, textWidth + 30, 25);
                 SplashKit.DrawText(statusMessage, Color.Red, xPosition, yPosition);
             }
 
@@ -229,12 +230,26 @@ public class Program
             SplashKit.DrawText("L - Line", Color.Black, boxX + 10, boxY + 66);
             SplashKit.DrawText("N - Random Shapes", Color.Black, boxX + 10, boxY + 84);
             SplashKit.DrawText("M - Draw Letter M", Color.Black, boxX + 10, boxY + 102);
-            SplashKit.DrawText("F - Draw Full Name", Color.Black, boxX + 10, boxY + 120);
+            SplashKit.DrawText("F - Draw First Name", Color.Black, boxX + 10, boxY + 120);
             SplashKit.DrawText("K - Change Colors", Color.Black, boxX + 10, boxY + 138);
             SplashKit.DrawText("D - Scale Down", Color.Black, boxX + 10, boxY + 156);
             SplashKit.DrawText("S - Save", Color.Black, boxX + 10, boxY + 174);
             SplashKit.DrawText("O - Load", Color.Black, boxX + 10, boxY + 192);
             SplashKit.DrawText("Space - Background", Color.Black, boxX + 10, boxY + 210);
+
+            // Draw student info box at bottom-left corner
+            int infoBoxX = 10;
+            int infoBoxY = 540;
+            int infoBoxWidth = 270;
+            int infoBoxHeight = 50;
+
+            // Draw semi-transparent background box
+            SplashKit.FillRectangle(Color.RGBAColor(255, 255, 255, 200), infoBoxX, infoBoxY, infoBoxWidth, infoBoxHeight);
+            SplashKit.DrawRectangle(Color.Black, infoBoxX, infoBoxY, infoBoxWidth, infoBoxHeight);
+
+            // Draw student information text
+            SplashKit.DrawText("Min Thu Kyaw Khaung (Markus)", Color.Black, infoBoxX + 10, infoBoxY + 10);
+            SplashKit.DrawText("SUT ID: 105684881 | Section: C1", Color.Black, infoBoxX + 10, infoBoxY + 28);
 
             SplashKit.RefreshScreen();
 
