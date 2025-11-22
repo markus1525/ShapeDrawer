@@ -29,6 +29,9 @@ public class Program
 
         // File path for saving/loading
         string filePath = "/Users/minthukyawkhaung/Desktop/TestDrawing.txt"; // Mac
+        //string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TestDrawing.txt"); //Cross-platform
+
+        string statusMessage = "";
 
         do
         {
@@ -57,30 +60,40 @@ public class Program
             if (SplashKit.KeyTyped(KeyCode.NKey))
             {
                 myDrawing.DrawRandomShapes();
+
+                statusMessage = "Random Shapes Drawn.(Option 1 + 2)";
             }
 
             // Option 1 - Feature 2: Press M to draw letter M
             if (SplashKit.KeyTyped(KeyCode.MKey))
             {
                 myDrawing.DrawLetterM();
+
+                statusMessage = "Letter M Drawn.(Option 1)";
             }
 
-            // Option 2 - Feature 2: Press F to draw full name MIN THU
+            // Option 2 - Feature 2: Press F to draw first name MIN THU
             if (SplashKit.KeyTyped(KeyCode.FKey))
             {
                 myDrawing.DrawFullName();
+
+                statusMessage = "My First Name Drawn.(Option 2)";
             }
 
             // Option 1 - Feature 3: Press K to change all colors
             if (SplashKit.KeyTyped(KeyCode.KKey))
             {
                 myDrawing.ChangeAllColorsRandom();
+
+                statusMessage = "All Shapes Colors Changed.(Option 1)";
             }
 
             // Option 2 - Feature 3: Press D to scale down all shapes
             if (SplashKit.KeyTyped(KeyCode.DKey))
             {
                 myDrawing.ScaleDownShapes();
+
+                statusMessage = "All Shapes Scaled Down.(Option 2)";
             }
 
             // Check for S key to save
@@ -90,6 +103,7 @@ public class Program
                 {
                     myDrawing.Save(filePath);
                     Console.WriteLine("Drawing saved successfully to: " + filePath);
+                    statusMessage = "Drawing Saved to File.";
                 }
                 catch (Exception e)
                 {
@@ -104,6 +118,7 @@ public class Program
                 {
                     myDrawing.Load(filePath);
                     Console.WriteLine("Drawing loaded successfully from: " + filePath);
+                    statusMessage = "Drawing Loaded from File.";
                 }
                 catch (Exception e)
                 {
@@ -146,6 +161,8 @@ public class Program
                     myShape.Y = mouseY;
                     myDrawing.AddShape(myShape);
                 }
+                // Clear message when shape is added
+                statusMessage = "";
             }
 
             // Check if spacebar is pressed
@@ -153,6 +170,9 @@ public class Program
             {
                 // Change the background color to a new random color
                 myDrawing.Background = SplashKit.RandomColor();
+
+                // Clear message when background color is changed
+                statusMessage = "";
             }
 
             // Check if right mouse button is clicked
@@ -173,10 +193,24 @@ public class Program
                 {
                     myDrawing.RemoveShape(shape);
                 }
+
+                // Clear message when shapes are deleted
+                statusMessage = "";
             }
 
             // Tell myDrawing to Draw
             myDrawing.Draw();
+
+            // Display status message if not empty
+            if (statusMessage != "")
+            {
+                int textWidth = statusMessage.Length * 8;
+                int xPosition = (800 - textWidth) / 2;
+                int yPosition = 30;
+
+                SplashKit.DrawRectangle(Color.Red, xPosition - 15, yPosition - 8, textWidth + 30, 25);
+                SplashKit.DrawText(statusMessage, Color.Red, xPosition, yPosition);
+            }
 
             SplashKit.RefreshScreen();
 
