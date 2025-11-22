@@ -1,3 +1,52 @@
 # Ignore files
 .DS_Store
 .myeasylog.log
+
+# Build results
+bin/
+obj/
+
+# Visual Studio Code
+.vscode/
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build Results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rm/
+[Aa]rm64/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Log files
+logs/
+*.log
+
+# Test files
+TestDrawing.txt
+/Users/minthukyawkhaung/Desktop/TestDrawing.txt
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+
+# Visual Studio cache/options
+.vs/
