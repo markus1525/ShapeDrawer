@@ -28,8 +28,8 @@ public class Program
         int parallelLines = 1;
 
         // File path for saving/loading
-        string filePath = "/Users/minthukyawkhaung/Desktop/TestDrawing.txt"; // Mac
-        //string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TestDrawing.txt"); //Cross-platform
+        // string filePath = "/Users/minthukyawkhaung/Desktop/TestDrawing.txt"; // Mac
+        string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "TestDrawing.txt"); //Cross-platform
 
         string statusMessage = "";
 
@@ -55,6 +55,7 @@ public class Program
             {
                 kindToAdd = ShapeKind.Line;
             }
+
 
             // Option 1 & 2 - Feature 1: Press N to draw random shapes
             if (SplashKit.KeyTyped(KeyCode.NKey))
@@ -95,6 +96,23 @@ public class Program
 
                 statusMessage = "All Shapes Scaled Down.(Option 2)";
             }
+
+            // Additional - Press U to scale up all shapes
+            if (SplashKit.KeyTyped(KeyCode.UKey))
+            {
+                myDrawing.ScaleUpShapes();
+
+                statusMessage = "All Shapes Scaled Up.(Additional)";
+            }
+
+            // Additional - Press A to select all shapes
+            if (SplashKit.KeyTyped(KeyCode.AKey))
+            {
+                myDrawing.SelectAll();
+
+                statusMessage = "All Shapes Selected.(Additional)";
+            }
+
 
             // Check for S key to save
             if (SplashKit.KeyTyped(KeyCode.SKey))
@@ -210,21 +228,21 @@ public class Program
 
                 SplashKit.FillRectangle(Color.RGBAColor(255, 255, 255, 200), xPosition - 15, yPosition - 8, textWidth + 30, 25);
                 SplashKit.DrawRectangle(Color.Black, xPosition - 15, yPosition - 8, textWidth + 30, 25);
-                SplashKit.DrawText(statusMessage, Color.Red, xPosition, yPosition);
+                SplashKit.DrawText(statusMessage, Color.SwinburneRed, xPosition, yPosition);
             }
 
             // Draw instructions box in top-right corner
             int boxX = 580;
             int boxY = 10;
             int boxWidth = 210;
-            int boxHeight = 235;
+            int boxHeight = 260;
 
             // Draw semi-transparent background box
             SplashKit.FillRectangle(Color.RGBAColor(255, 255, 255, 200), boxX, boxY, boxWidth, boxHeight);
             SplashKit.DrawRectangle(Color.Black, boxX, boxY, boxWidth, boxHeight);
 
             // Draw instructions text
-            SplashKit.DrawText("CONTROLS", Color.Black, "Arial", 14, boxX + 60, boxY + 8);
+            SplashKit.DrawText("CONTROLS", Color.SwinburneRed, "Arial", 14, boxX + 60, boxY + 8);
             SplashKit.DrawText("R - Rectangle", Color.Black, boxX + 10, boxY + 30);
             SplashKit.DrawText("C - Circle", Color.Black, boxX + 10, boxY + 48);
             SplashKit.DrawText("L - Line", Color.Black, boxX + 10, boxY + 66);
@@ -233,9 +251,11 @@ public class Program
             SplashKit.DrawText("F - Draw First Name", Color.Black, boxX + 10, boxY + 120);
             SplashKit.DrawText("K - Change Colors", Color.Black, boxX + 10, boxY + 138);
             SplashKit.DrawText("D - Scale Down", Color.Black, boxX + 10, boxY + 156);
-            SplashKit.DrawText("S - Save", Color.Black, boxX + 10, boxY + 174);
-            SplashKit.DrawText("O - Load", Color.Black, boxX + 10, boxY + 192);
-            SplashKit.DrawText("Space - Background", Color.Black, boxX + 10, boxY + 210);
+            SplashKit.DrawText("U - Scale Up", Color.Black, boxX + 10, boxY + 174);
+            SplashKit.DrawText("A - Select All", Color.Black, boxX + 10, boxY + 192);
+            SplashKit.DrawText("S - Save", Color.Black, boxX + 10, boxY + 210);
+            SplashKit.DrawText("O - Load", Color.Black, boxX + 10, boxY + 228);
+            SplashKit.DrawText("Space - Background", Color.Black, boxX + 10, boxY + 246);
 
             // Draw student info box at bottom-left corner
             int infoBoxX = 10;
@@ -248,8 +268,8 @@ public class Program
             SplashKit.DrawRectangle(Color.Black, infoBoxX, infoBoxY, infoBoxWidth, infoBoxHeight);
 
             // Draw student information text
-            SplashKit.DrawText("Min Thu Kyaw Khaung (Markus)", Color.Black, infoBoxX + 10, infoBoxY + 10);
-            SplashKit.DrawText("SUT ID: 105684881 | Section: C1", Color.Black, infoBoxX + 10, infoBoxY + 28);
+            SplashKit.DrawText("Min Thu Kyaw Khaung (Markus)", Color.DarkBlue, infoBoxX + 10, infoBoxY + 10);
+            SplashKit.DrawText("SUT ID: 105684881 | Section: C1", Color.DarkGoldenrod, infoBoxX + 10, infoBoxY + 28);
 
             SplashKit.RefreshScreen();
 

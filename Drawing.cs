@@ -289,5 +289,39 @@ namespace ShapeDrawer
                 }
             }
         }
+
+        // Additional - Scale up all shapes by 20%
+        public void ScaleUpShapes()
+        {
+            foreach (Shape s in _shapes)
+            {
+                if (s is MyRectangle rect)
+                {
+                    rect.Width = (int)(rect.Width * 1.2);
+                    rect.Height = (int)(rect.Height * 1.2);
+                }
+                else if (s is MyCircle circle)
+                {
+                    circle.Radius = (int)(circle.Radius * 1.2);
+                }
+                else if (s is MyLine line)
+                {
+                    // Scale line by moving endpoint further from start
+                    float deltaX = line.EndX - line.X;
+                    float deltaY = line.EndY - line.Y;
+                    line.EndX = line.X + (deltaX * 1.2f);
+                    line.EndY = line.Y + (deltaY * 1.2f);
+                }
+            }
+        }
+
+        // Additional - Select all shapes
+        public void SelectAll()
+        {
+            foreach (Shape s in _shapes)
+            {
+                s.Selected = true;
+            }
+        }
     }
 }
