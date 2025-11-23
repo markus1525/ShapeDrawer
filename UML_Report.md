@@ -728,7 +728,72 @@ The implementation demonstrates strong encapsulation:
 
 ---
 
-## 10. Conclusion
+## 10. Additional Features
+
+Beyond the three required features for Option 2, the application includes two additional enhancements that improve user experience and functionality:
+
+### Feature 4: Scale Up All Shapes (U Key)
+
+**Purpose:**
+This feature provides the inverse operation to Feature 3 (Scale Down). When the user presses the 'U' key, all shapes on the canvas are scaled up by 25%, increasing their size.
+
+**Implementation:**
+```
+User presses 'U' → Program.KeyTyped(UKey) → Drawing.ScaleUpShapes()
+```
+
+**Key Design Decisions:**
+- Scaling factor of 1.25 (25% increase) for all shapes
+- Type-specific scaling logic similar to ScaleDownShapes():
+  - **Rectangles:** Width and Height are multiplied by 1.25
+  - **Circles:** Radius is multiplied by 1.25
+  - **Lines:** Distance from start point to end point is multiplied by 1.25, keeping start point fixed
+- In-place modification preserves all other shape properties (color, position, selection state)
+- Can be used multiple times for progressive enlargement
+
+**Benefits:**
+- Complements the scale down functionality
+- Provides users with full control over shape sizing
+- Uses the same polymorphic approach as ScaleDownShapes()
+- Maintains consistency with existing scaling behavior
+
+### Feature 5: Select All Shapes (A Key)
+
+**Purpose:**
+This feature allows users to quickly select all shapes currently on the canvas at once, making batch operations more efficient.
+
+**Implementation:**
+```
+User presses 'A' → Program.KeyTyped(AKey) → Drawing.SelectAll()
+```
+
+**Key Design Decisions:**
+- Iterates through all shapes in the _shapes collection
+- Sets the Selected property to true for each shape
+- Works with the existing selection system (shapes draw with outline when selected)
+- Enables efficient batch operations like deleting all shapes
+
+**Benefits:**
+- Improves user experience by reducing repetitive right-click operations
+- Works seamlessly with existing selection and deletion features
+- Demonstrates iteration through polymorphic collections
+- Follows the same selection mechanism as individual shape selection
+
+### Combined Workflow
+
+These additional features integrate seamlessly with the existing functionality:
+
+1. **User draws multiple shapes** (rectangles, circles, lines)
+2. **User presses 'A'** → All shapes are selected
+3. **User presses 'U'** multiple times → All shapes grow larger
+4. **User presses 'D'** multiple times → All shapes shrink smaller
+5. **User presses Delete/Backspace** → All selected shapes are removed
+
+This demonstrates how the additional features complement the core functionality and provide users with more control over shape manipulation.
+
+---
+
+## 11. Conclusion
 
 This comprehensive UML report demonstrates how the ShapeDrawing application implements all three features of Option 2 using object-oriented programming principles. The diagrams and analysis show:
 

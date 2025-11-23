@@ -115,3 +115,15 @@ Allow the end-user to press a key that will automatically **scale down the size 
 - Submission link will be available on Canvas under Assignment section
 
 **Note:** Attempting Option 2 does not guarantee 15-18 marks by default. It depends on your source code correctness, video demonstration performance, the report's quality, and academic integrity.
+
+---
+
+## Additional Features
+
+Beyond the required features for Options 1 and 2, this program includes the following enhancements:
+
+#### Scale Up All Shapes (U Key)
+Press the **U** key to scale up all shapes currently on the canvas. This feature complements the scale down functionality from Option 2, allowing users to increase the size of all shapes (width, height, radius, or length) simultaneously.
+
+#### Select All Shapes (A Key)
+Press the **A** key to select all shapes currently on the canvas at once. This provides a convenient way to select multiple shapes without having to individually right-click on each one, making it easier to perform batch operations like deletion.
