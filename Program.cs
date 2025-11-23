@@ -76,7 +76,7 @@ public class Program
             // Option 2 - Feature 2: Press F to draw first name MIN THU
             if (SplashKit.KeyTyped(KeyCode.FKey))
             {
-                myDrawing.DrawFullName();
+                myDrawing.DrawFirstName();
 
                 statusMessage = "My First Name Drawn.(Option 2)";
             }

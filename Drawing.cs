@@ -207,8 +207,8 @@ namespace ShapeDrawer
             AddShape(line4);
         }
 
-        // Option 2 - Feature 2: Draw full name MIN THU
-        public void DrawFullName()
+        // Option 2 - Feature 2: Draw first name MIN THU
+        public void DrawFirstName()
         {
             Color letterColor = Color.Blue;
             float startX = 50;
